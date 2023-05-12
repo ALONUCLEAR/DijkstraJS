@@ -42,7 +42,7 @@ export default {
             return this.value < Infinity ? this.value : "∞";
         },
         color() {
-            return this.isExplored ? "green" : "red";
+            return this.isExplored ? "#28EB28" : "red";
         }
     }
 }
