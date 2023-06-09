@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div :style="`position: absolute; left: calc(50% - ${radius}px + ${x}px); top: calc(50% - ${radius}px - ${y}px); margin: 0; padding: 0;`">
     <label> {{ shortestDistance }} </label> <br />
     <svg :height="radius*3" :width="radius*3">
-        <circle :cx="x + radius * 1.5" :cy="y + radius * 1.5" :r="radius" stroke-width="3" :fill="color" />
+        <circle :cx="radius * 1.5" :cy="radius * 1.5" :r="radius" stroke-width="3" :fill="color" />
     </svg> <br />
     <label> {{ name }} </label>
   </div>
@@ -39,7 +39,7 @@ export default {
     },
     computed: {
         shortestDistance() {
-            return this.value < Infinity ? this.value : "∞";
+            return this.value < Infinity ? this.value : "♾️";
         },
         color() {
             return this.isExplored ? "#28EB28" : "red";
@@ -52,7 +52,12 @@ export default {
 circle {
     stroke: black;
 }
+
 .dark circle {
     stroke: white;
+}
+
+label {
+    font-weight: bold;
 }
 </style>
